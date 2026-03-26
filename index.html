@@ -5,125 +5,70 @@
   <title>Ort piratas - Menú</title>
   <style>
     body {
-      background: #0b1d3a;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fb;
+      color: #1f2937;
+      text-align: center;
     }
 
-    /* CONTENIDO CENTRADO */
-    .content {
-      max-width: 500px;
-      margin: auto;
-      position: relative;
-      z-index: 1;
+    /* HEADER */
+    .header {
+      background: #0b3a75;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    /* MENU */
-    .menu {
-      margin-bottom: 30px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
     }
 
     .menu a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: 0.2s;
+      opacity: 0.9;
     }
 
     .menu a:hover {
-      background: #3b82f6;
+      opacity: 1;
+    }
+
+    /* CONTENIDO */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
     }
 
     h1 {
+      color: #0b3a75;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       margin-bottom: 30px;
     }
 
-    .link {
-      display: block;
-      background: #1e3a8a;
-      margin: 10px auto;
-      padding: 15px;
-      width: 250px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      transition: 0.2s;
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    .link:hover {
-      background: #3b82f6;
-    }
-
-    .tutorial {
-      display: block;
-      background: #6b4310;
-      margin: 10px auto;
-      padding: 15px;
-      width: 250px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      transition: 0.2s;
-    }
-
-    .tutorial:hover {
-      background: #b16e16;
-    }
-
-    /* IMÁGENES LATERALES */
-    .side-img {
-      position: fixed;
-      top: 0;
-      height: 100vh;
-      width: 440px;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.8;
-    }
-
-    .left { left: 0; }
-    .right { right: 0; }
-  </style>
-</head>
-<body>
-
-<img class="side-img left" src="https://imagenes.computerhoy.20minutos.es/files/image_640_auto/uploads/imagenes/2022/11/28/68e585223a5d6.jpeg">
-<img class="side-img right" src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/028588b2f027cd8583ef380427404888/meme-madness.png">
-
-<div class="content">
-
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="contacto.html">Contactanos</a>
-  </div>
-
-  <h1>☭ Nuestros Juegos ☭</h1>
-  <h2>Todos los juegos estan comprimidos, necesitas descomprimirlos para poder jugar.</h2>
-
-  <h3> Webs principales de juegos:</h3>
-  <a class="tutorial" href="https://fitgirl-repacks.site/">Fit girl</a>
-  <a class="tutorial" href="https://steamunlocked.org/">Steam unlocked</a>
-  <a class="tutorial" href="https://crotorrents.com/">Crotorrents</a>
-  
-  <h3> Juegos:</h3>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Papers-Please/papers.please.zip">Papers please</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/No-im-not-human/No_im_not_human.zip">No, i'm not a human</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/FNAF-into-the-pit/FNAF.into.the.pit.zip">FNAF Into the pit</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Balatro/Balatro.zip">Balatro</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Geometry-dash/Geometry.dash.zip">Geometry dash</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Plantas-VS-Zombies/Plantas.VS.Zombies.zip">Plantas VS Zombies</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Cookie-clicker/Cookie.Clicker.zip">Cookie clicker</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Goat-simulator/Goat.Simulator.FitGirl.Repack.zip">Goat simulator</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Undertale/Undertale.zip">Undertale</a>
-  <a class="link" href="https://github.com/hotwelj/juegos-ort/releases/download/Berry-Burry-Berry/Berry.Bury.Berry.v2026.02.06.zip">Berry Burry Berry</a>
-
-</div>
-
-</body>
+    .btn {
 </html>
