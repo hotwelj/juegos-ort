@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Ort piratas - Menú</title>
+  <link rel="icon" href="https://i.imgur.com/CD8poZf.png" type="image/png">
   <style>
     * { box-sizing: border-box; }
 
@@ -267,6 +268,46 @@
       white-space: nowrap;
     }
 
+    /* BARRA DE BÚSQUEDA */
+    .search-wrapper {
+      max-width: 500px;
+      margin: 0 auto 20px auto;
+      position: relative;
+    }
+
+    .search-wrapper input {
+      width: 100%;
+      padding: 12px 18px 12px 44px;
+      border-radius: 10px;
+      border: 2px solid #dbeafe;
+      font-size: 15px;
+      outline: none;
+      background: white;
+      color: #1f2937;
+      transition: border 0.2s;
+    }
+
+    .search-wrapper input:focus {
+      border-color: #1d4ed8;
+    }
+
+    .search-wrapper .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #93c5fd;
+      font-size: 18px;
+      pointer-events: none;
+    }
+
+    .no-results {
+      display: none;
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
     /* FOOTER */
     .footer {
       background: white;
@@ -359,6 +400,12 @@
   <div class="card">
     <h3>🎮 Juegos</h3>
     <p class="card-subtitle">Elegí un juego para descargar y comenzar a jugar.</p>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Buscar juego..." oninput="filterGames()">
+    </div>
+    <p class="no-results" id="noResults">No se encontró ningún juego.</p>
     <div class="games-grid">
 
       <div class="game-card">
@@ -465,6 +512,22 @@
 </div>
 
 <script>
+  function filterGames() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.game-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const name = card.querySelector('.game-name').textContent.toLowerCase();
+      if (name.includes(query)) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+  }
+
   function toggleDropdown(id) {
     const target = document.getElementById(id);
     const isOpen = target.classList.contains('open');
