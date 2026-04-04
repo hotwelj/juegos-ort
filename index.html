@@ -14,7 +14,6 @@
       text-align: center;
     }
 
-    /* HEADER */
     .header {
       background: #0b3a75;
       color: white;
@@ -30,9 +29,8 @@
       gap: 20px;
     }
 
-    .logo img {
-      height: 40px;
-    }
+    .logo a { display: flex; align-items: center; }
+    .logo img { height: 40px; cursor: pointer; }
 
     .nav {
       display: flex;
@@ -56,10 +54,7 @@
       background: rgba(255,255,255,0.15);
     }
 
-    /* Dropdown Webs */
-    .dropdown {
-      position: relative;
-    }
+    .dropdown { position: relative; }
 
     .dropdown-btn {
       background: none;
@@ -87,9 +82,7 @@
       transition: transform 0.2s;
     }
 
-    .dropdown.open .arrow {
-      transform: rotate(180deg);
-    }
+    .dropdown.open .arrow { transform: rotate(180deg); }
 
     .dropdown-menu {
       display: none;
@@ -104,9 +97,7 @@
       z-index: 100;
     }
 
-    .dropdown.open .dropdown-menu {
-      display: block;
-    }
+    .dropdown.open .dropdown-menu { display: block; }
 
     .dropdown-menu a {
       display: block;
@@ -124,14 +115,9 @@
       color: #0b3a75;
     }
 
-    .dropdown-menu a + a {
-      border-top: 1px solid #e5e7eb;
-    }
+    .dropdown-menu a + a { border-top: 1px solid #e5e7eb; }
 
-    /* Icono persona */
-    .person-dropdown {
-      position: relative;
-    }
+    .person-dropdown { position: relative; }
 
     .person-icon {
       width: 36px;
@@ -147,15 +133,8 @@
       padding: 0;
     }
 
-    .person-icon:hover {
-      background: rgba(255,255,255,0.35);
-    }
-
-    .person-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
+    .person-icon:hover { background: rgba(255,255,255,0.35); }
+    .person-icon svg { width: 20px; height: 20px; fill: white; }
 
     .person-menu {
       display: none;
@@ -171,22 +150,9 @@
       text-align: left;
     }
 
-    .person-dropdown.open .person-menu {
-      display: block;
-    }
-
-    .person-menu p {
-      margin: 0;
-      font-size: 14px;
-      color: #1f2937;
-      font-weight: bold;
-    }
-
-    .person-menu span {
-      font-size: 13px;
-      color: #6b7280;
-      font-weight: normal;
-    }
+    .person-dropdown.open .person-menu { display: block; }
+    .person-menu p { margin: 0; font-size: 14px; color: #1f2937; font-weight: bold; }
+    .person-menu span { font-size: 13px; color: #6b7280; }
 
     /* CONTENIDO */
     .container {
@@ -195,11 +161,11 @@
       padding: 20px;
     }
 
-    h1 { color: #0b3a75; }
+    h1 { color: #0b3a75; margin-bottom: 0; }
 
     .hero-banner {
-      max-width: 600px;
-      margin: 0 auto 30px auto;
+      max-width: 860px;
+      margin: 20px auto 16px auto;
       border-radius: 12px;
       overflow: hidden;
       border: 3px solid #0b3a75;
@@ -207,12 +173,13 @@
 
     .hero-banner img {
       width: 100%;
-      height: 140px;
+      height: 110px;
       object-fit: cover;
       object-position: center;
       display: block;
     }
 
+    /* CARD JUEGOS */
     .card {
       background: white;
       border-radius: 12px;
@@ -221,29 +188,69 @@
       margin-bottom: 30px;
     }
 
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #0b3a75;
     }
 
-    .btn {
-      display: block;
-      padding: 14px;
+    .card-subtitle {
+      color: #6b7280;
+      font-size: 14px;
+      margin: -8px 0 20px 0;
+    }
+
+    /* Grid de juegos */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .game-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px 14px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .game-card .game-name {
+      font-weight: bold;
+      font-size: 15px;
+      color: #0b3a75;
+      margin: 0;
+    }
+
+    .game-card .game-desc {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .game-card .btn-download {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: #dbeafe;
+      color: #1d4ed8;
       border-radius: 8px;
       text-decoration: none;
+      font-size: 13px;
       font-weight: bold;
-      background: #0b3a75;
-      color: white;
-      transition: 0.2s;
+      transition: background 0.2s;
     }
 
-    .btn:hover { background: #2563eb; }
-
-    .btn-wrapper {
-      position: relative;
-      display: block;
+    .game-card .btn-download:hover {
+      background: #bfdbfe;
     }
 
     .badge-recomendado {
@@ -259,15 +266,59 @@
       pointer-events: none;
       white-space: nowrap;
     }
+
+    /* FOOTER */
+    .footer {
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+      max-width: 180px;
+    }
+
+    .footer-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .footer-item strong {
+      display: block;
+      font-size: 14px;
+      color: #0b3a75;
+      margin-bottom: 2px;
+    }
+
+    .footer-item p {
+      margin: 0;
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
 
 <div class="header">
-  <!-- IZQUIERDA: logo + nav -->
   <div class="header-left">
     <div class="logo">
-      <img src="https://i.imgur.com/CD8poZf.png">
+      <a href="index.html">
+        <img src="https://i.imgur.com/deMceid.png">
+      </a>
     </div>
     <div class="nav">
       <a href="index.html">Home</a>
@@ -285,12 +336,9 @@
     </div>
   </div>
 
-  <!-- DERECHA: icono persona -->
   <div class="person-dropdown" id="dropdown-person">
     <button class="person-icon" onclick="toggleDropdown('dropdown-person')">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
     </button>
     <div class="person-menu">
       <p>¿Qué querés hacer?</p>
@@ -301,29 +349,117 @@
 
 <div class="container">
   <h1>Nuestros Juegos</h1>
-  <p>Todos los juegos están comprimidos, necesitas descomprimirlos para poder jugar.</p>
 
   <div class="hero-banner">
     <img src="https://i.imgur.com/fD2Rmbp.png" alt="Banner">
   </div>
 
+  <p>Todos los juegos están comprimidos, necesitas descomprimirlos para poder jugar.</p>
+
   <div class="card">
-    <h3>Juegos</h3>
-    <div class="links">
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Papers-Please/papers.please.zip">Papers Please</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/No-im-not-human/No_im_not_human.zip">No, I'm not human</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/FNAF-into-the-pit/FNAF.into.the.pit.zip">FNAF Into the pit</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Balatro/Balatro.zip">Balatro</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Geometry-dash/Geometry.dash.zip">Geometry Dash</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Plantas-VS-Zombies/Plantas.VS.Zombies.zip">Plantas vs Zombies</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Cookie-clicker/Cookie.Clicker.zip">Cookie Clicker</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Goat-simulator/Goat.Simulator.FitGirl.Repack.zip">Goat Simulator</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Undertale/Undertale.zip">Undertale</a>
-      <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Berry-Burry-Berry/Berry.Bury.Berry.v2026.02.06.zip">Berry Burry Berry</a>
-      <div class="btn-wrapper">
-        <a class="btn" href="https://github.com/hotwelj/juegos-ort/releases/download/Scritchy-Scratchy/Scritchy.Scratchy.zip">Scritchy scratchy</a>
-        <span class="badge-recomendado">⭐ RECOMENDADO!</span>
+    <h3>🎮 Juegos</h3>
+    <p class="card-subtitle">Elegí un juego para descargar y comenzar a jugar.</p>
+    <div class="games-grid">
+
+      <div class="game-card">
+        <p class="game-name">Papers Please</p>
+        <p class="game-desc">Inspeccioná documentos y decidí quién entra al país.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Papers-Please/papers.please.zip">⬇ Descargar</a>
       </div>
+
+      <div class="game-card">
+        <p class="game-name">No, I'm not human</p>
+        <p class="game-desc">Detectá androides que intentan hacerse pasar por humanos.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/No-im-not-human/No_im_not_human.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">FNAF Into the pit</p>
+        <p class="game-desc">Explorá, sobreviví y descubrí los secretos que esconde el lugar.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/FNAF-into-the-pit/FNAF.into.the.pit.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Balatro</p>
+        <p class="game-desc">Un roguelike de cartas donde construís las mejores manos.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Balatro/Balatro.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Geometry Dash</p>
+        <p class="game-desc">Saltá y esquivá obstáculos al ritmo de la música.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Geometry-dash/Geometry.dash.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Plantas vs Zombies</p>
+        <p class="game-desc">Defendé tu jardín de las hordas de zombies con plantas.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Plantas-VS-Zombies/Plantas.VS.Zombies.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Cookie Clicker</p>
+        <p class="game-desc">Hacé click para hornear cookies y construir tu imperio.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Cookie-clicker/Cookie.Clicker.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Goat Simulator</p>
+        <p class="game-desc">Sé una cabra y causá el mayor caos posible.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Goat-simulator/Goat.Simulator.FitGirl.Repack.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Undertale</p>
+        <p class="game-desc">Es Undertale, quien no lo conoce?.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Undertale/Undertale.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Berry Burry Berry</p>
+        <p class="game-desc">Un juego indie de aventura y exploración colorido.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Berry-Burry-Berry/Berry.Bury.Berry.v2026.02.06.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">I Am Bread</p>
+        <p class="game-desc">Sé una rebanada de pan y llegá a ser tostada como sea.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/I-Am-Bread/I.Am.Bread.Incl.GoatBread.zip">⬇ Descargar</a>
+      </div>
+
+      <div class="game-card">
+        <p class="game-name">Scritchy Scratchy</p>
+        <p class="game-desc">Compra boletos de loteria, juega, hazte millonario, muere, repite.</p>
+        <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Scritchy-Scratchy/Scritchy.Scratchy.zip">⬇ Descargar</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-item">
+    <div class="footer-icon">🛡️</div>
+    <div>
+      <strong>Seguro</strong>
+      <p>Todos los archivos fueron escaneados.</p>
+    </div>
+  </div>
+  <div class="footer-item">
+    <div class="footer-icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#1d4ed8" xmlns="http://www.w3.org/2000/svg"><path d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66.27 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.13c.55.55 1.37.74 2.12.46C13.54 16.5 15.88 15.2 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61M14.54 9.46C13.76 8.68 13.76 7.41 14.54 6.63S16.59 5.85 17.37 6.63 18.15 8.68 17.37 9.46 15.32 10.24 14.54 9.46M8.88 16.53L7.47 15.12C8.27 13.71 8.74 12.31 8.96 11.28L12.72 15.04C11.69 15.26 10.29 15.73 8.88 16.53M5 19C5 19 4 22 7 22C7 22 8 19 11 19C11 19 8 17 5 19Z"/></svg>
+    </div>
+    <div>
+      <strong>Fácil de usar</strong>
+      <p>Descargá, descomprimí y jugá.</p>
+    </div>
+  </div>
+  <div class="footer-item">
+    <div class="footer-icon">🩵</div>
+    <div>
+      <strong>Hecho con pasión</strong>
+      <p>Para nuestra comunidad pirata.</p>
     </div>
   </div>
 </div>
@@ -337,8 +473,7 @@
   }
 
   document.addEventListener('click', function(e) {
-    const dropdowns = document.querySelectorAll('.dropdown, .person-dropdown');
-    dropdowns.forEach(d => {
+    document.querySelectorAll('.dropdown, .person-dropdown').forEach(d => {
       if (!d.contains(e.target)) d.classList.remove('open');
     });
   });
