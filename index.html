@@ -308,6 +308,74 @@
       margin-top: 10px;
     }
 
+    /* FILTROS DE GÉNERO */
+    .genre-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .genre-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 2px solid #dbeafe;
+      background: white;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .genre-btn:hover {
+      background: #dbeafe;
+    }
+
+    .genre-btn.active {
+      background: #1d4ed8;
+      color: white;
+      border-color: #1d4ed8;
+    }
+
+    /* Tooltip explicación de género */
+    .genre-btn[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1f2937;
+      color: white;
+      font-size: 11px;
+      font-weight: normal;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Tags de género en cada tarjeta */
+    .game-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .game-tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: bold;
+    }
+
     /* FOOTER */
     .footer {
       background: white;
@@ -410,104 +478,131 @@
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" placeholder="Buscar juego..." oninput="filterGames()">
     </div>
+
+    <div class="genre-filters">
+      <button class="genre-btn active" onclick="filterGenre('todos', this)">Todos</button>
+      <button class="genre-btn" onclick="filterGenre('accion', this)">Acción</button>
+      <button class="genre-btn" onclick="filterGenre('aventura', this)">Aventura</button>
+      <button class="genre-btn" onclick="filterGenre('humor', this)">Humor</button>
+      <button class="genre-btn" onclick="filterGenre('puzzle', this)">Puzzle</button>
+      <button class="genre-btn" data-tooltip="Cada partida es distinta, morís y empezás de cero con mejoras" onclick="filterGenre('roguelike', this)">Roguelike</button>
+      <button class="genre-btn" data-tooltip="Explorás un mapa grande descubriendo zonas nuevas a tu ritmo" onclick="filterGenre('metroidvania', this)">Metroidvania</button>
+      <button class="genre-btn" onclick="filterGenre('clicker', this)">Clicker</button>
+      <button class="genre-btn" onclick="filterGenre('terror', this)">Terror</button>
+    </div>
+
     <p class="no-results" id="noResults">No se encontró ningún juego.</p>
     <div class="games-grid">
 
-      <div class="game-card">
+      <div class="game-card" data-genres="puzzle aventura">
         <p class="game-name">Papers Please</p>
         <p class="game-desc">Inspeccioná documentos y decidí quién entra al país.</p>
+        <div class="game-tags"><span class="game-tag">Puzzle</span><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Papers-Please/papers.please.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="accion humor">
         <p class="game-name">No, I'm not human</p>
         <p class="game-desc">Detectá zombies que intentan hacerse pasar por humanos.</p>
+        <div class="game-tags"><span class="game-tag">Acción</span><span class="game-tag">Humor</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/No-im-not-human/No_im_not_human.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="terror aventura">
         <p class="game-name">FNAF Into the pit</p>
         <p class="game-desc">Explorá, sobreviví y descubrí los secretos que esconde el lugar.</p>
+        <div class="game-tags"><span class="game-tag">Terror</span><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/FNAF-into-the-pit/FNAF.into.the.pit.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="roguelike puzzle">
         <p class="game-name">Balatro</p>
         <p class="game-desc">Un roguelike de cartas donde construís las mejores manos.</p>
+        <div class="game-tags"><span class="game-tag">Roguelike</span><span class="game-tag">Puzzle</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Balatro/Balatro.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="accion">
         <p class="game-name">Geometry Dash</p>
         <p class="game-desc">Saltá y esquivá obstáculos al ritmo de la música.</p>
+        <div class="game-tags"><span class="game-tag">Acción</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Geometry-dash/Geometry.dash.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="accion puzzle">
         <p class="game-name">Plantas vs Zombies</p>
         <p class="game-desc">Defendé tu jardín de las hordas de zombies con plantas.</p>
+        <div class="game-tags"><span class="game-tag">Acción</span><span class="game-tag">Puzzle</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Plantas-VS-Zombies/Plantas.VS.Zombies.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="clicker">
         <p class="game-name">Cookie Clicker</p>
         <p class="game-desc">Hacé click para hornear cookies y construir tu imperio.</p>
+        <div class="game-tags"><span class="game-tag">Clicker</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Cookie-clicker/Cookie.Clicker.zip">⬇ Descargar</a>
       </div>
 
-
-
-      <div class="game-card">
+      <div class="game-card" data-genres="aventura puzzle">
         <p class="game-name">Undertale</p>
         <p class="game-desc">Es Undertale, ¿quién no lo conoce?</p>
+        <div class="game-tags"><span class="game-tag">Aventura</span><span class="game-tag">Puzzle</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Undertale/Undertale.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="aventura">
         <p class="game-name">Berry Burry Berry</p>
         <p class="game-desc">Un juego indie de aventura y exploración colorido.</p>
+        <div class="game-tags"><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Berry-Burry-Berry/Berry.Bury.Berry.v2026.02.06.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="humor accion">
         <p class="game-name">I Am Bread</p>
         <p class="game-desc">Sé una rebanada de pan y llegá a ser tostada como sea.</p>
+        <div class="game-tags"><span class="game-tag">Humor</span><span class="game-tag">Acción</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/I-Am-Bread/I.Am.Bread.Incl.GoatBread.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="clicker">
         <p class="game-name">Particul</p>
         <p class="game-desc">Hacé clic para minar partículas, vendelas y acumulá ganancias. Como Cookie Clicker pero con física.</p>
+        <div class="game-tags"><span class="game-tag">Clicker</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Particul/Particul.Build.21967676.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="accion aventura">
         <p class="game-name">The Simpsons: Hit & Run</p>
         <p class="game-desc">GTA pero en Springfield. Manejá por la ciudad, completá misiones y descubrí la conspiración que amenaza a los Simpson.</p>
+        <div class="game-tags"><span class="game-tag">Acción</span><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/The-Simpsons-Hit-%26-Run/The.Simpsons.Hit.and.Run.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="humor aventura">
         <p class="game-name">The Henry Stickmin Collection</p>
         <p class="game-desc">Elegí cómo actúa Henry en cada situación. Fallar es tan divertido como ganar.</p>
+        <div class="game-tags"><span class="game-tag">Humor</span><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/The-Henry-Stickmin-Collection/The.Henry.Stickmin.Collection.v2020.08.12.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="metroidvania accion">
         <p class="game-name">Hollow Knight</p>
         <p class="game-desc">Explorá un vasto reino subterráneo de insectos y misterios. Difícil, hermoso y enorme.</p>
+        <div class="game-tags"><span class="game-tag">Metroidvania</span><span class="game-tag">Acción</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Hollow-Knight/Hollow.Knight.v1.5.12620.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="humor aventura">
         <p class="game-name">Untitled Goose Game</p>
         <p class="game-desc">Sos un ganso horrible suelto en un pueblo. Robá sombreros, graznás y arruinale el día a todos.</p>
+        <div class="game-tags"><span class="game-tag">Humor</span><span class="game-tag">Aventura</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Untitled-Goose-Game/Untitled.Goose.Game.v1.1.4.zip">⬇ Descargar</a>
       </div>
 
-      <div class="game-card">
+      <div class="game-card" data-genres="roguelike clicker">
         <p class="game-name">Scritchy Scratchy</p>
         <p class="game-desc">Comprá tickets de lotería, rascá, hacete millonario, morí, repetí.</p>
+        <div class="game-tags"><span class="game-tag">Roguelike</span><span class="game-tag">Clicker</span></div>
         <a class="btn-download" href="https://github.com/hotwelj/juegos-ort/releases/download/Scritchy-Scratchy/Scritchy.Scratchy.zip">⬇ Descargar</a>
       </div>
 
@@ -541,13 +636,18 @@
 </div>
 
 <script>
+  let activeGenre = 'todos';
+
   function filterGames() {
     const query = document.getElementById('searchInput').value.toLowerCase();
     const cards = document.querySelectorAll('.game-card');
     let visible = 0;
     cards.forEach(card => {
       const name = card.querySelector('.game-name').textContent.toLowerCase();
-      if (name.includes(query)) {
+      const genres = card.getAttribute('data-genres') || '';
+      const matchesSearch = name.includes(query);
+      const matchesGenre = activeGenre === 'todos' || genres.includes(activeGenre);
+      if (matchesSearch && matchesGenre) {
         card.style.display = '';
         visible++;
       } else {
@@ -555,6 +655,13 @@
       }
     });
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function filterGenre(genre, btn) {
+    activeGenre = genre;
+    document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterGames();
   }
 
   function toggleDropdown(id) {
