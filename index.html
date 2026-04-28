@@ -308,7 +308,37 @@
       margin-top: 10px;
     }
 
-    /* FILTROS DE GÉNERO */
+    /* BOTÓN VOLVER ARRIBA */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #0b3a75;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 16px rgba(11,58,117,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .back-to-top:hover { background: #2563eb; }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
     .genre-filters {
       display: flex;
       flex-wrap: wrap;
@@ -471,7 +501,7 @@
   </div>
 
   <div class="card">
-    <h3>🎮 Juegos</h3>
+    <h3>Juegos (<span id="gameCount"></span>)</h3>
     <p class="card-subtitle">Elegí un juego para descargar y comenzar a jugar.</p>
 
     <div class="search-wrapper">
@@ -635,7 +665,17 @@
   </div>
 </div>
 
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆ Volver arriba</button>
+
 <script>
+  // Contador de juegos
+  document.getElementById('gameCount').textContent = document.querySelectorAll('.game-card').length;
+
+  // Botón volver arriba
+  window.addEventListener('scroll', () => {
+    document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 300);
+  });
+
   let activeGenre = 'todos';
 
   function filterGames() {
